@@ -24,7 +24,9 @@ function getFiltered() {
 
   if (search) {
     const LOWER_CASE_SEARCH = search.trim().toLowerCase();
-    result = result.filter((p) => p.name.toLowerCase() === LOWER_CASE_SEARCH);
+    result = result.filter((p) =>
+      p.name.toLowerCase().includes(LOWER_CASE_SEARCH),
+    );
   }
 
   if (category !== "all") {
