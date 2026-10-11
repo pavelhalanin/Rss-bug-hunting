@@ -22,15 +22,15 @@ function getFiltered() {
   const category = categorySelect.value;
   const sort = sortSelect.value;
 
+  if (category !== "all") {
+    result = products.filter((p) => p.category === category);
+  }
+
   if (search) {
     const LOWER_CASE_SEARCH = search.trim().toLowerCase();
     result = result.filter((p) =>
       p.name.toLowerCase().includes(LOWER_CASE_SEARCH),
     );
-  }
-
-  if (category !== "all") {
-    result = products.filter((p) => p.category === category);
   }
 
   if (sort === "desc") {
