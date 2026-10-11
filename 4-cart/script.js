@@ -35,7 +35,17 @@ function addToCart(id) {
   if (!product) {
     return;
   }
-  cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
+  const ITEM_ON_BASKET = cart.find((i) => i.id === id);
+  if (!ITEM_ON_BASKET) {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      qty: 1,
+    });
+  } else {
+    ITEM_ON_BASKET.qty += 1;
+  }
   renderCart();
 }
 
